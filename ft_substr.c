@@ -12,8 +12,30 @@
 
 #include "libft.h"
 #include <unistd.h>
+#include <stdio.h>
 
-void ft_putchar_fd(char c, int fd)
+char	*ft_substr(char const *s, unsigned int start, size_t length)
 {
-	write(fd, &c, 1);
+	char	*substr;
+	size_t	i;
+
+	substr = ft_calloc (ft_strlen(s) + 1, sizeof(char));
+	i = 0;
+	if (!s || !substr)
+		return (0);
+	while (s[start] && start <= length)
+		substr[i++] = s[start++];
+	substr[i] = '\0';
+	return (substr);
 }
+
+/* int main(void)
+{
+	char str[] = "abcd";
+	int start = 1;
+	int length = 2;
+	printf("%s", ft_substr(str,start,length));
+} */
+
+//Returns the portion of string specified by the start 
+//and length parameters

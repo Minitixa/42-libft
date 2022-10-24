@@ -11,9 +11,17 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
-void ft_putchar_fd(char c, int fd)
+char	*ft_strtrim(char const *s, char const *set)
 {
-	write(fd, &c, 1);
+	size_t	i;
+
+	if (!s || !set)
+		return (0);
+	while (*s && ft_strchr(set, *s))
+		s++;
+	i = ft_strlen(s);
+	while (*s && ft_strchr(set, s[i]))
+		i--;
+	return (ft_substr(s, 0, i));
 }

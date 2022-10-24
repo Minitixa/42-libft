@@ -6,13 +6,13 @@
 /*   By: pasantos <pasantos@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 12:01:58 by tisha             #+#    #+#             */
-/*   Updated: 2022/09/18 13:07:42 by pasantos         ###   ########.fr       */
+/*   Updated: 2022/09/21 12:11:04 by pasantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void ft_putchar_fd(char c, int fd)
+void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
 }

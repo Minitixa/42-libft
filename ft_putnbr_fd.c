@@ -10,12 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
 #include "libft.h"
-#include <unistd.h>
 
-void ft_putchar_fd(char c, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
-	write(fd, &c, 1);
+	unsigned int	nbr;
+
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		nbr = (unsigned int)n * -1;
+	}
+	else
+		nbr = (unsigned int)n;
+	if (nbr < 10)
+		ft_putchar_fd(nbr + 48, fd);
+	else
+	{
+		ft_putnbr_fd(nbr / 10, fd);
+		ft_putchar_fd((char)(nbr % 10) + 48, fd);
+	}
 }

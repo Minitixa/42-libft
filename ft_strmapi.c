@@ -5,15 +5,51 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pasantos <pasantos@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/18 13:09:14 by pasantos          #+#    #+#             */
-/*   Updated: 2022/09/18 13:09:14 by pasantos         ###   ########.fr       */
+/*   Created: 2022/09/19 18:32:41 by pasantos          #+#    #+#             */
+/*   Updated: 2022/09/19 18:32:41 by pasantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
+#include <stdio.h>
+#include <string.h>
 
-void	ft_putchar_fd(char c, int fd)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	write(fd, &c, 1);
+	char	*str;
+	size_t	len;
+	size_t	i;
+
+	i = 0;
+	len = ft_strlen(s);
+	str = (char *) malloc(sizeof(char) * (len + 1));
+	if (!s || !f || !str)
+		return (0);
+	while (i < len)
+	{
+		str[i] = f(i, s[i]);
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
+
+//TESTER
+
+/* char	f(unsigned int i, char c)
+{
+	char	str;
+
+	str = c + 1;
+	return (str);
+}
+
+int	main(void)
+{
+	char	*str1;
+	char	*str2;
+
+	str1 = "abc";
+	str2 = ft_strmapi(str1, *f);
+	printf("%s\n", str2);
+} */
