@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+/* #include "libft.h"
 
-/* char	**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	int		i;
 	int		c_pos;
@@ -36,12 +36,12 @@
 }
 
 #include <stdio.h>
-int main (void)
-{
-	printf("%s", )
-} */
 
-/*
+int	main(void)
+{
+	printf("%s", );
+}
+
 malloc, free
 1 string to be split
 2 the delimeter character

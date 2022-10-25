@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pasantos <pasantos@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: pasantos <pasantos <pasantos@student.42lis +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 22:26:50 by tisha             #+#    #+#             */
-/*   Updated: 2022/09/23 19:07:12 by pasantos         ###   ########.fr       */
+/*   Updated: 2022/10/24 15:40:40 by pasantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(const char *str)
 {
 	int	neg;
-	int	num;		//DONT NEED THIS - CLEAN IT
+	int	num;
 	int	i;
 
 	neg = 1;
