@@ -29,11 +29,12 @@ CFLAGS = -Wall -Werror -Wextra -I.
 all:$(NAME)
 
 $(NAME): $(SRC:=.o)
-			ar rc $(NAME) $(SRC:=.o)
+			ar rcs $(NAME) $(SRC:=.o)
 clean:
 	$(RM)    $(SRC:=.o) $(BONUS:=.o)
 fclean: clean
 		$(RM)    $(NAME)
 re:    fclean    $(NAME)
 bonus:    $(SRC:=.o)    $(BONUS:=.o)
-		ar rc $(NAME) $(SRC:=.o)    $(BONUS:=.o)
+		ar rcs $(NAME) $(SRC:=.o) $(BONUS:=.o)
+.PHONY: all clean fclean re bonus

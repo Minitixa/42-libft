@@ -6,7 +6,7 @@
 /*   By: pasantos <pasantos <pasantos@student.42lis +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:38:49 by pasantos          #+#    #+#             */
-/*   Updated: 2022/10/25 18:25:59 by pasantos         ###   ########.fr       */
+/*   Updated: 2022/10/26 12:01:22 by pasantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	if (!lst || !new)
 		return ;
-	if (*lst != NULL)
-		new->next = *lst;
-	**lst = *new;
+	new->next = *lst;
+	*lst = new;
 }

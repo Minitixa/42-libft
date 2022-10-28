@@ -19,23 +19,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t length)
 	char	*substr;
 	size_t	i;
 
-	substr = ft_calloc (ft_strlen(s) + 1, sizeof(char));
+	substr = ft_calloc (length + 1, sizeof(char));
 	i = 0;
 	if (!s || !substr)
 		return (0);
-	while (s[start] && start <= length)
+	while (start < ft_strlen(s) && i < length)
 		substr[i++] = s[start++];
 	substr[i] = '\0';
 	return (substr);
 }
-
-/* int main(void)
-{
-	char str[] = "abcd";
-	int start = 1;
-	int length = 2;
-	printf("%s", ft_substr(str,start,length));
-} */
-
-//Returns the portion of string specified by the start 
-//and length parameters

@@ -19,7 +19,7 @@ int	ft_nbrlen(int n)
 	i = 1;
 	if (n < 0)
 		n *= -1;
-	while (n > 10)
+	while (n >= 10)
 	{
 		n /= 10;
 		i++;
@@ -34,9 +34,13 @@ char	*ft_itoa(int n)
 
 	len = ft_nbrlen(n);
 	str = ft_calloc(len, sizeof(char) + 2);
+	str[len--] = '\0';
 	if (!str)
 		return (0);
-	str[len--] = '\0';
+	if (n == -2147483648)
+		return ("-2147483648");
+	if (n == 0)
+		return ("0");
 	if (n < 0)
 	{
 		str[0] = '-';
@@ -45,15 +49,8 @@ char	*ft_itoa(int n)
 	}
 	while (n > 0)
 	{
-		str[len] = n % 10 + '0';
+		str[len--] = n % 10 + '0';
 		n /= 10;
-		len--;
 	}
 	return (str);
 }
-
-/* #include <stdio.h>
-int main(void)
-{
-	printf("%s", ft_itoa(-8598));
-} */

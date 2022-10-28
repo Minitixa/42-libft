@@ -6,7 +6,7 @@
 /*   By: pasantos <pasantos <pasantos@student.42lis +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:40:17 by pasantos          #+#    #+#             */
-/*   Updated: 2022/10/25 17:44:26 by pasantos         ###   ########.fr       */
+/*   Updated: 2022/10/26 15:35:29 by pasantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,11 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-
+	if (!lst)
+		return ;
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
 }
