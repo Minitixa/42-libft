@@ -6,9 +6,11 @@
 /*   By: pasantos <pasantos@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 13:02:12 by tisha             #+#    #+#             */
-/*   Updated: 2022/09/18 13:09:45 by pasantos         ###   ########.fr       */
+/*   Updated: 2022/10/29 19:23:17 by pasantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_toupper(int c)
 {

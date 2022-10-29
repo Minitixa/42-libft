@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pasantos <pasantos <pasantos@student.42lis +#+  +:+       +#+        */
+/*   By: pasantos <pasantos@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:40:28 by pasantos          #+#    #+#             */
-/*   Updated: 2022/10/26 18:15:59 by pasantos         ###   ########.fr       */
+/*   Updated: 2022/10/29 19:44:54 by pasantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	if (!lst)
 		return (NULL);
 	map = NULL;
-	while(lst)
+	while (lst)
 	{
 		new = ft_lstnew(f(lst->content));
 		if (!new)

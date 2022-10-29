@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pasantos <pasantos <pasantos@student.42lis +#+  +:+       +#+        */
+/*   By: pasantos <pasantos@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 15:10:59 by tisha             #+#    #+#             */
-/*   Updated: 2022/10/25 17:37:46 by pasantos         ###   ########.fr       */
+/*   Updated: 2022/10/29 19:50:08 by pasantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct s_list
 }					t_list;
 
 int		ft_atoi(const char *str);
-void	ft_bzero(void *s, size_t n);
+void	ft_bzero(void *str, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 int		ft_isalnum(int i);
 int		ft_isalpha(int i);
@@ -48,7 +48,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *str, char c);
-char	*ft_itoa(int n);
+char	*ft_itoa(int nbr);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 void	ft_putchar_fd(char c, int fd);

@@ -11,158 +11,64 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-size_t	ft_strlen(const char *str)
+int	str_count(const char *str, char c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
-void	*ft_memset(void *s, int c, size_t n)
-{
-	size_t	i;
-	char	*a;
-
-	i = 0;
-	a = (char *)s;
-	while (i < n)
-	{
-		a[i] = c;
-		i++;
-	}
-	return (s);
-}
-
-void	ft_bzero(void *s, size_t n)
-{
-	ft_memset(s, 0, n);
-}
-
-void	*strcpy_ft(void *dest, const void *src)
-{
-	size_t	i;
-	char	*s;
-	char	*d;
-
-	i = 0;
-	s = (char *) src;
-	d = (char *) dest;
-	while (s[i] != '\0')
-	{
-		d[i] = s[i];
-		i++;
-	}
-	d[i] = '\0';
-
-	return (dest);
-}
-
-int	strcount(const char *s, char c, int *max_size)
-{
-	int	j;
 	int	i;
 	int	count;
 
-	i = 0;
-	j = 0;
+	i = 1;
 	count = 0;
-
-	while (s[j])
+	if (!str[0])
+		return (count);
+	while (str[i])
 	{
-		if (s[j] == c && j != 0)
-		{
-			if (s[j-1] != c)
-			{
-				count++;
-				i = 0;
-			}
-		}
-		else
-		{
-			i++;
-			if (i > *max_size)
-				*max_size = i;
-		}
-		j++;
+		if (str[i + 1] == 0 || (str[i] == c && str[i - 1] != c))
+			count++;
+		i++;
 	}
-
-	if (s[j-1] != c )
-		count++;
 	return (count);
 }
 
-char	*ft_dosomething(char *interm_str, char *str_array, int i, int k)
+char	*splitter(const char *s, int start, int end)
 {
-	interm_str[i] = '\0';
-	strcpy_ft(str_array, interm_str);
-	ft_bzero(interm_str, ft_strlen(interm_str));
-	return (str_array);
+	int		i;
+	char	*splitted_str;
+
+	i = 0;
+	splitted_str = malloc((end - start + 1) * sizeof(char));
+	if (!splitted_str)
+		return (NULL);
+	while (start < end)
+		splitted_str[i++] = s[start++];
+	splitted_str[i] = 0;
+	return (splitted_str);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int		i;
-	int		j;
-	int		k;
-	int		max_size;
-	int		str_nbr;
+	size_t		i;
+	size_t		j;
+	int			set;
+	char		**str_array;
 
-	char	*interm_str;
-	char	**str_array;
-
-	i			= 0;
-	j			= 0;
-	k			= 0;
-	max_size	= 0;
-	str_nbr		= strcount(s, c, &max_size);
-
-	interm_str = malloc((max_size + 1) * sizeof(char));
-	str_array = malloc((str_nbr + 1) * sizeof(char*));
-
-	if (!str_array || !interm_str)
-		return (NULL);
-
-	while (i <= str_nbr)
-	{
-		str_array[i] = malloc((max_size + 1) * sizeof(char));
-		i++;
-	}
 	i = 0;
-
-	while (s[j])
+	j = 0;
+	set = -1;
+	str_array = malloc((str_count(s, c) + 1) * sizeof(char *));
+	if (!str_array || !s)
+		return (NULL);
+	while (i <= ft_strlen(s))
 	{
-		if (s[j] == c && j != 0)
-			if (s[j-1] != c)
-				str_array[k] = ft_dosomething(*str_array, interm_str, i, k++);
-		else
+		if (s[i] != c && set < 0)
+			set = i;
+		else if ((s[i] == c || i == ft_strlen(s)) && set >= 0)
 		{
-			printf("%s\n", "supostamente printa");
-			interm_str[i++] = s[j];
-			if (s[j+1] == 0)
-				ft_dosomething(*str_array, interm_str, i, k++);
+			str_array[j++] = splitter(s, set, i);
+			set = -1;
 		}
-		j++;
-	}
-	free(interm_str);
-	str_array[k] = NULL;
-
-	return (str_array);
-}
-
-int main(void)
-{
-	const char *s = "a.b.cc";
-	char c = '.';
-	char **str = ft_split(s,c);
-	int i = 0;
-
-	while(str[i] != NULL)
-	{
-		printf("%s\n", str[i]);
 		i++;
 	}
+	str_array[j] = NULL;
+	return (str_array);
 }

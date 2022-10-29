@@ -6,7 +6,7 @@
 /*   By: pasantos <pasantos@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 22:29:30 by tisha             #+#    #+#             */
-/*   Updated: 2022/09/18 13:09:04 by pasantos         ###   ########.fr       */
+/*   Updated: 2022/10/29 22:19:15 by pasantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	i = 0;
 	j = 0;
 	while (i < size && dest[i])
-	{
 		i++;
-	}
 	while (((i + j + 1) < size) && (src[j]))
 	{
 		dest[i + j] = src[j];

@@ -6,12 +6,11 @@
 /*   By: pasantos <pasantos@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 22:29:13 by tisha             #+#    #+#             */
-/*   Updated: 2022/09/18 13:07:34 by pasantos         ###   ########.fr       */
+/*   Updated: 2022/10/29 19:22:12 by pasantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {

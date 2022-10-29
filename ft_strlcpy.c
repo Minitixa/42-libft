@@ -6,18 +6,16 @@
 /*   By: pasantos <pasantos@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 22:29:33 by tisha             #+#    #+#             */
-/*   Updated: 2022/09/18 13:09:07 by pasantos         ###   ########.fr       */
+/*   Updated: 2022/10/29 22:18:33 by pasantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *str2, size_t size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	char	*src;
 	size_t	i;
 
-	src = (char *)str2;
 	i = 0;
 	if (size == 0)
 		return (ft_strlen(src));
